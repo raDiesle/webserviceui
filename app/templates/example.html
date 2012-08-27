@@ -1,1 +1,72 @@
 Hello {{ object }}
+
+
+<div id="wrapper">
+    <div id="example-1" class="wizard">
+        <h2 class="wizard-header">Basic Wizard With Validation</h2>
+
+        <form name="example-1" id="wrapped" class="wizard-form wizard-branch wizard-wrapper" novalidate="novalidate">
+
+            <h3>Progress <span id="location"></span></h3>
+            <div id="progressbar"></div>
+            <div id="result"></div>
+
+            <div id="registerMobile" class="step wizard-step" style="display: none; ">
+                Register new mobile number<br>
+                <input id="mobileNumber" type="text" name="mobileNumber" >Male<br>
+                <input id="registerMobileButton" type="button" value="register"/>
+            </div>
+
+
+            <div id="realStep1" class="step wizard-step" style="display: none; ">step3</div>
+
+
+                {{debug}}
+                <table id="userRegistrationFields">
+                    <tr>
+                        <td>
+                            {{#slice fields offset="0" limit="12"}}
+                            {{key}} <br />
+                            <input type="text" name="{{key}}" class="required valid" value="{{value}}">
+                            <label for="{{key}}" generated="true" class="error" style="display: none; ">This field is required.</label><br>
+                            {{/slice}}
+                        </td>
+                        <td>
+                            {{#slice fields offset="12" limit="100"}}
+                            {{key}} <br />
+                            <input type="text" name="{{key}}" class="required valid" value="{{value}}">
+                            <label for="{{key}}" generated="true" class="error" style="display: none; ">This field is required.</label><br>
+                            {{/slice}}
+                        </td>
+                    </tr>
+                </table>
+
+                <input id="userRegistration" type="button" value="Register User"/>
+
+
+            <div class="step wizard-step" style="display: none; ">
+                step 2
+            </div>
+
+
+            <script id="registerUserStepanother" type="text/x-handlebars-template">
+                <div class="step wizard-step" style="display: none; ">
+                    What is your gender?<br>
+                    <input type="radio" name="gender" value="male" class="required valid">Male<br>
+                    <input type="radio" name="gender" value="female" class="required valid">Female<br>
+                </div>
+            </script>
+            <div class="submit step wizard-step current" style="display: block; ">
+                <p>Thanks!</p>
+            </div>
+
+            <div class="navigation">
+                <ul class="clearfix">
+                    <li><button type="button" name="backward" class="backward">Backward</button></li>
+                    <li><button type="button" name="forward" class="forward" disabled="">Forward</button></li>
+                    <li><button type="submit" name="process" class="submit">Submit</button></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

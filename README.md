@@ -1,4 +1,4 @@
 webserviceui
 ============
 
-webserviceui like soapui
+webserviceui like soapu
